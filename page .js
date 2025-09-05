@@ -195,3 +195,82 @@ function applyTranslation(lang) {
   document.querySelector('#about p').textContent = t.aboutDesc;
   document.querySelector('#contact h2').textContent = t.contactTitle;
 }
+document.addEventListener('DOMContentLoaded', () => {
+  const customizerPanel = document.getElementById('customizer-panel');
+  const customizerToggle = document.getElementById('customizer-toggle');
+  const colorOptions = document.querySelectorAll('.color-option');
+  const fontSelect = document.getElementById('font-select');
+  const body = document.body;
+
+  // Toggle the customizer panel
+  if (customizerToggle) {
+    customizerToggle.addEventListener('click', () => {
+      const isExpanded = customizerToggle.getAttribute('aria-expanded') === 'true' || false;
+      customizerPanel.classList.toggle('customizer-open');
+      customizerToggle.setAttribute('aria-expanded', !isExpanded);
+    });
+  }
+
+  // Handle color selection
+  colorOptions.forEach(button => {
+    button.addEventListener('click', () => {
+      const selectedColor = button.getAttribute('data-color');
+      
+      // Remove 'active-color' from all buttons
+      colorOptions.forEach(btn => btn.classList.remove('active-color'));
+      
+      // Add 'active-color' to the clicked button
+      button.classList.add('active-color');
+      
+      // Set the color theme on the body element
+      body.setAttribute('data-color-theme', selectedColor);
+      
+      // Update the toggle button color
+      customizerToggle.style.backgroundColor = getComputedStyle(button).backgroundColor;
+    });
+  });
+
+  // Handle font selection
+  if (fontSelect) {
+    fontSelect.addEventListener('change', (event) => {
+      const selectedFont = event.target.value;
+      body.style.fontFamily = selectedFont;
+    });
+  }
+});
+document.addEventListener('DOMContentLoaded', () => {
+  const customizeBtn = document.getElementById('customize-btn');
+  const customizePanel = document.getElementById('customize-panel');
+  const colorOptions = document.querySelectorAll('.color-option');
+  const fontSelect = document.getElementById('font-select');
+
+  // Toggle panel visibility
+  customizeBtn.addEventListener('click', () => {
+    const isExpanded = customizeBtn.getAttribute('aria-expanded') === 'true';
+    customizeBtn.setAttribute('aria-expanded', !isExpanded);
+    customizePanel.style.display = isExpanded ? 'none' : 'block';
+  });
+
+  // Apply selected color as primary color (example: change --primary-color CSS variable or body background)
+  colorOptions.forEach(button => {
+    button.addEventListener('click', () => {
+      const color = button.getAttribute('data-color');
+      // Example: change CSS variable or directly style elements
+      document.documentElement.style.setProperty('--primary-color', color);
+      // For demo, let's change link colors and buttons background
+      document.querySelectorAll('a.btn-primary').forEach(el => {
+        el.style.backgroundColor = color;
+        el.style.borderColor = color;
+      });
+      // Also change nav logo color as example
+      const logo = document.querySelector('.logo');
+      if (logo) logo.style.color = color;
+    });
+  });
+
+  // Apply selected font family to body
+  fontSelect.addEventListener('change', () => {
+    const font = fontSelect.value;
+    document.body.style.fontFamily = font;
+  });
+});

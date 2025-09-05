@@ -266,5 +266,32 @@
 
 
   </script>
+  <!-- Customize Button -->
+<div id="customize-container" aria-label="Customize website appearance" style="position: fixed; top: 50%; right: 0; transform: translateY(-50%); z-index: 1000;">
+  <button id="customize-btn" aria-expanded="false" aria-controls="customize-panel" aria-haspopup="true" style="writing-mode: vertical-rl; text-orientation: mixed; padding: 10px 15px; cursor: pointer; border: none; background-color: #333; color: white; border-radius: 8px 0 0 8px;">
+    Customize
+  </button>
+
+  <div id="customize-panel" role="region" aria-label="Customize options" style="display: none; background: #fff; border: 1px solid #ccc; padding: 15px; width: 220px; box-shadow: 0 0 10px rgba(0,0,0,0.2); border-radius: 8px 0 0 8px; margin-top: 10px;">
+    <h3 style="margin-top: 0;">Colors</h3>
+    <div>
+      <button class="color-option" data-color="#3498db" style="background-color: #3498db; width: 30px; height: 30px; border: none; margin: 3px; cursor: pointer;" aria-label="Blue"></button>
+      <button class="color-option" data-color="#e74c3c" style="background-color: #e74c3c; width: 30px; height: 30px; border: none; margin: 3px; cursor: pointer;" aria-label="Red"></button>
+      <button class="color-option" data-color="#2ecc71" style="background-color: #2ecc71; width: 30px; height: 30px; border: none; margin: 3px; cursor: pointer;" aria-label="Green"></button>
+      <button class="color-option" data-color="#9b59b6" style="background-color: #9b59b6; width: 30px; height: 30px; border: none; margin: 3px; cursor: pointer;" aria-label="Purple"></button>
+    </div>
+
+    <h3>Fonts</h3>
+    <select id="font-select" aria-label="Select font family" style="width: 100%; padding: 5px; margin-top: 5px;">
+      <option value="Arial, sans-serif">Arial</option>
+      <option value="'Courier New', Courier, monospace">Courier New</option>
+      <option value="'Georgia', serif">Georgia</option>
+      <option value="'Times New Roman', Times, serif">Times New Roman</option>
+      <option value="'Trebuchet MS', sans-serif">Trebuchet MS</option>
+      <option value="'Verdana', sans-serif">Verdana</option>
+    </select>
+  </div>
+</div>
+  
 </body>
 </html>
