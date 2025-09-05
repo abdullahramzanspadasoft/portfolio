@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login - DevAbdullah</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="login-body">
+  <div class="login-container">
+    <h2>Welcome to DevAbdullah Portfolio</h2>
+    <form id="loginForm">
+      <label for="email">Enter Your Email</label>
+      <input type="email" id="email" required placeholder="you@example.com">
+      <button type="button" id="sendCode">Send Code</button>
+
+      <div id="codeSection" style="display:none;">
+        <label for="code">Enter Verification Code</label>
+        <input type="text" id="code" required placeholder="Enter Code">
+        <button type="submit">Verify</button>
+      </div>
+    </form>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
